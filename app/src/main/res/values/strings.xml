@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Bag words</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="str_words">Слова</string>
+    <string name="str_comb_of_words">Словосочетания</string>
+    <string name="str_association">Ассоциации</string>
+    <string name="str_header">Словарь английских слов</string>
+    <string name="str_add_word">Добавить слово</string>
+    <string name="str_add_combs">Добавить словосочетание</string>
+    <string name="str_btn_add_word">Добавить</string>
+    <string name="str_btn_add_comb">Добавить</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="action_mode">Action Mode</string>
+    <string name="item1">Item1</string>
+    <string name="item2">Item2</string>
+    <string name="item3">Item3</string>
+    <string name="item4">Item4</string>
+    <string name="str_menu_delete">Удалить</string>
+
+
+    <string name="str_excp_no_google_translate">Приложение Google Translate не установлено</string>
+    <string name="str_btn_send_word">Отправить Google</string>
+    <string name="str_write_bd">Записать в БД</string>
+
+
+</resources>
