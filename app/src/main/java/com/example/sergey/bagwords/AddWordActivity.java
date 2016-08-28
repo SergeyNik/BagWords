@@ -34,16 +34,16 @@ public class AddWordActivity extends AppCompatActivity implements View.OnClickLi
         btnAddNewWord = (Button) findViewById(R.id.btn_add_new_word);
         btnAddSqlWord = (Button) findViewById(R.id.btn_add_word_sql);
         sendWord.setText(TempVariables.string);
-        textView = (TextView) findViewById(R.id.textView);
+
 
 
         // get translate
         Intent intent = getIntent();
         String action = intent.getStringExtra(Intent.EXTRA_TEXT);
-        // TODO: открыть список
+
         // if (action.equals(""))
         receivedWord.setText(action);
-        // TODO: отправить получить получить еще новое слово положить в новый edit
+        // TODO: отправить, получить, получить еще, новое слово положить в новый edit
         // TODO: удалить после нажатия
 
         btnAddNewWord.setOnClickListener(this);

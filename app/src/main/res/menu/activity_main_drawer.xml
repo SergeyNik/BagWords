@@ -2,18 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_words"
+        <!--<item-->
+            <!--android:id="@+id/nav_words"-->
 
-            android:title="@string/str_words" />
-        <item
-            android:id="@+id/nav_combination_of_words"
-
-            android:title="@string/str_comb_of_words" />
-        <item
-            android:id="@+id/nav_association"
-
-            android:title="@string/str_association" />
+            <!--android:title="@string/str_words" />-->
     </group>
 
 
@@ -23,10 +15,6 @@
                 android:id="@+id/nav_add_word"
 
                 android:title="@string/str_add_word" />
-            <item
-                android:id="@+id/nav_add_combs"
-
-                android:title="@string/str_add_combs" />
         </menu>
     </item>
 

@@ -9,21 +9,17 @@
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
 
-    <!--<FrameLayout-->
-    <!--android:id="@+id/fragment_container_main"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent" />-->
-
     <fragment
         class="com.example.sergey.bagwords.WordsListFragment"
         android:id="@+id/list_words"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
     </fragment>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <FrameLayout
+        android:id="@+id/fragment_container_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

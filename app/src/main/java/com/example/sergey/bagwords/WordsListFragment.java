@@ -1,13 +1,11 @@
 package com.example.sergey.bagwords;
 
 
-
-import android.app.Activity;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 /**
@@ -30,14 +29,31 @@ public class WordsListFragment extends ListFragment {
     private SQLiteOpenHelper wordsDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
     private Cursor cursor;
-    private long wordId;
-    private Activity activity;
-    CursorAdapter listAdapter;
+
+
+    static interface WordsListListener{
+        void itemClicked(long id);
+    }
+
+    private WordsListListener listListener;
 
 
     public WordsListFragment() {
         // Required empty public constructor
-        activity = getActivity();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.listListener = (WordsListListener) context;
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        if(listListener != null){
+            listListener.itemClicked(id);
+        }
     }
 
     @Override
@@ -52,7 +68,7 @@ public class WordsListFragment extends ListFragment {
     public void onStart() {
         super.onStart();
 
-        // TODO: сделать в потоке
+       updateList();
 
     }
 
@@ -95,9 +111,6 @@ public class WordsListFragment extends ListFragment {
 
 
     // *************************************************************************************************
-    public void setWord(long id) {
-        this.wordId = id;
-    }
 
     public void updateList(){
         cursor = sqLiteDatabase.query("MY_WORDS",
