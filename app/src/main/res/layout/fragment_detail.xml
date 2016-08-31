@@ -1,8 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sergey.bagwords.DetailFragment">
+    tools:context="com.example.sergey.bagwords.DetailFragment"
+    android:weightSum="1">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -10,11 +11,21 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text=""
-        android:id="@+id/text_en_word" />
+        android:id="@+id/text_en_word"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:id="@+id/text_ru_word" />
-</FrameLayout>
+        android:id="@+id/text_ru_word"
+        android:layout_gravity="center"
+        android:layout_weight="0.23"
+        android:layout_below="@+id/text_en_word"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp"
+        android:layout_alignRight="@+id/text_en_word"
+        android:layout_alignEnd="@+id/text_en_word" />
+</RelativeLayout>

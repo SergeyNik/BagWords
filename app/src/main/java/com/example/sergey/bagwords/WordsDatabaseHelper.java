@@ -29,9 +29,8 @@ public class WordsDatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void updateMyDatabase(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        // if database clear
+        // if no database
         if (oldVersion < 1) {
-
             // Create table in database
             sqLiteDatabase.execSQL("CREATE TABLE MY_WORDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "EN_WORD TEXT, "
@@ -40,9 +39,11 @@ public class WordsDatabaseHelper extends SQLiteOpenHelper {
            // insertWord(sqLiteDatabase, "Hello", "Привет", 1);
         }
 
+//      there if new database
 //        if (oldVersion < 2) {
 //
 //        }
+
     }
 
     private static void insertWord(SQLiteDatabase sqLiteDatabase, String name,
