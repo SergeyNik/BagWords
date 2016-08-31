@@ -28,6 +28,7 @@
     <string name="str_excp_no_google_translate">Приложение Google Translate не установлено</string>
     <string name="str_btn_send_word">Отправить Google</string>
     <string name="str_write_bd">Записать в БД</string>
+    <string name="to_google">To Google</string>
 
 
 </resources>

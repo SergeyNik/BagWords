@@ -12,11 +12,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FilterQueryProvider;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +31,10 @@ import android.widget.Toast;
  */
 
 public class WordsListFragment extends ListFragment {
+
+    EditText sendWordToGoogle;
+    Button btnSendToGoogle;
+    SimpleCursorAdapter userAdapter;
 
     private SQLiteOpenHelper wordsDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
@@ -49,6 +59,38 @@ public class WordsListFragment extends ListFragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        sendWordToGoogle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.w("onTextChanged","Here");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+    }
+
+    @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         if(listListener != null){
@@ -59,6 +101,12 @@ public class WordsListFragment extends ListFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        View view = getView();
+        if (view != null) {
+            sendWordToGoogle = (EditText) view.findViewById(R.id.search_word);
+            btnSendToGoogle = (Button) view.findViewById(R.id.btn_send);
+        }
         registerForContextMenu(getListView());
         connectDB();
         updateList();

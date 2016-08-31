@@ -13,7 +13,8 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,8 @@
 
         <activity
             android:name=".AddWordActivity"
-            android:parentActivityName="com.example.sergey.bagwords.MainActivity" >
+            android:parentActivityName="com.example.sergey.bagwords.MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -34,7 +36,8 @@
         </activity>
 
         <activity
-            android:name=".DetailActivity">
+            android:name=".DetailActivity"
+            android:parentActivityName="com.example.sergey.bagwords.MainActivity">
 
         </activity>
 
