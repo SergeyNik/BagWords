@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -32,9 +33,11 @@ import android.widget.Toast;
 
 public class WordsListFragment extends ListFragment {
 
+    TextView textView;
     EditText sendWordToGoogle;
     Button btnSendToGoogle;
     SimpleCursorAdapter userAdapter;
+    public static long id;
 
     private SQLiteOpenHelper wordsDatabaseHelper;
     private SQLiteDatabase sqLiteDatabase;
@@ -79,6 +82,8 @@ public class WordsListFragment extends ListFragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 Log.w("onTextChanged","Here");
+                id++;
+                textView.setText(Integer.toString((int) id));
             }
 
             @Override
@@ -106,6 +111,7 @@ public class WordsListFragment extends ListFragment {
         if (view != null) {
             sendWordToGoogle = (EditText) view.findViewById(R.id.search_word);
             btnSendToGoogle = (Button) view.findViewById(R.id.btn_send);
+            textView = (TextView) view.findViewById(R.id.text_for_test);
         }
         registerForContextMenu(getListView());
         connectDB();
