@@ -1,17 +1,21 @@
 package com.example.sergey.bagwords;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, WordsListFragment.WordsListListener {
@@ -32,6 +36,19 @@ public class MainActivity extends AppCompatActivity
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
+        // Search
+//        Intent searchIntent = getIntent();
+//        if(Intent.ACTION_SEARCH.equals(searchIntent.getAction())){
+//
+//            String query = searchIntent.getStringExtra(SearchManager.QUERY);
+//            Toast.makeText(MainActivity.this, query, Toast.LENGTH_SHORT).show();
+//        }
+        // Get the intent, verify the action and get the query
+//        Intent intent = getIntent();
+//        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+//            String query = intent.getStringExtra(SearchManager.QUERY);
+//            //doMySearch(query);
+//        }
 
         // Floating button with send word to google
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -70,6 +87,18 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+
+//        SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+//        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
         return true;
     }
 

@@ -29,6 +29,9 @@
     <string name="str_btn_send_word">Отправить Google</string>
     <string name="str_write_bd">Записать в БД</string>
     <string name="to_google">To Google</string>
+    <string name="searchable">Searchable</string>
+    <string name="menu_search">Search</string>
+    <string name="word_title_hint">Enter a title for the word</string>
 
 
 </resources>
